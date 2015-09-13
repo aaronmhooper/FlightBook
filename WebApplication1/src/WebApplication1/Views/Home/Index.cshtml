@@ -19,79 +19,55 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 style="color: white; font-size: 56px;"class="shadow_text">Book the adventure of a lifetime!</h1>
-            <h2 style="color: white;" class="shadow_text">Choose a destination for you and your friends!</h2>
+            <h2 style="color: white;" class="shadow_text">Find The Least Expensive Place For Up To 5 People To Meet!</h2>
             @ViewData["finished"]
 
         </div>
         
         <div class="col-lg-12 text-center">
-            <select id="numOfPeople">
-                <option id="numOfPeople" value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select><br /><br />
-            <div id="whenLeave">  
-            </div>
+            
             @using (Html.BeginForm("Index", "Expedia", FormMethod.Post))
             {
                 <form id="userData">
                     <center>
-
                         Where are you leaving from?
                         <input name="Dep" class="form-control" placeholder="Enter Your Home Airport" required>When do you want to leave?
                         <input name="LeaveDate" class="form-control" placeholder="When do you want to leave? (xx/xx/xxxx)" required>When do you want to get back?
                         <input name="ReturnDate"class="form-control" placeholder="When do you want to get back? (xx/xx/xxxx)" required><hr />
-
-
+                        <input name="Dep" class="form-control" placeholder="Enter Your Home Airport" required>When do you want to leave?
+                        <input name="LeaveDate" class="form-control" placeholder="When do you want to leave? (xx/xx/xxxx)" required>When do you want to get back?
+                        <input name="ReturnDate" class="form-control" placeholder="When do you want to get back? (xx/xx/xxxx)" required><hr />
+                        <input name="Dep" class="form-control" placeholder="Enter Your Home Airport" required>When do you want to leave?
+                        <input name="LeaveDate" class="form-control" placeholder="When do you want to leave? (xx/xx/xxxx)" required>When do you want to get back?
+                        <input name="ReturnDate" class="form-control" placeholder="When do you want to get back? (xx/xx/xxxx)" required><hr />
+                        <input name="Dep" class="form-control" placeholder="Enter Your Home Airport" required>When do you want to leave?
+                        <input name="LeaveDate" class="form-control" placeholder="When do you want to leave? (xx/xx/xxxx)" required>When do you want to get back?
+                        <input name="ReturnDate" class="form-control" placeholder="When do you want to get back? (xx/xx/xxxx)" required><hr />
+                        <input name="Dep" class="form-control" placeholder="Enter Your Home Airport" required>When do you want to leave?
+                        <input name="LeaveDate" class="form-control" placeholder="When do you want to leave? (xx/xx/xxxx)" required>When do you want to get back?
+                        <input name="ReturnDate" class="form-control" placeholder="When do you want to get back? (xx/xx/xxxx)" required><hr />
                     </center>
-
-
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#numOfPeople').change(function () {
-                        $("#whenLeave").empty();
-                        var numOfPeople = $("#numOfPeople").val();
-                        for (i = 1; i < numOfPeople; i++) {
-                            var fragment = '<center><input class="form-control" placeholder="Enter A Departer Point" required></center><center>When do you want to leave?<input type="date" class="form-control" placeholder="When do you want to leave? (xx/xx/xxxx)" required>When do you want to get back?<input type="date" class="form-control" placeholder="When do you want to get back? (xx/xx/xxxx)" required><br /></center>';
-                            $("#whenLeave").append(fragment);
-                        }
-                        $("#whenLeave").append(input);
-                    })
-                });
-            </script>
             </form>}
             <button class="btn btn-success" type="submit">Submit</button>
             
-            <!--<script type="text/javascript">
+            <script type="text/javascript">
                 
-                    $("button").click(function () {
-                        var x = $("form").serializeArray();
-                        $.each(x, function (i, field) {
-                            $("#results").append(field.name + ":" + field.value + " ");
-                        });
-                            
-                        $.ajax({
-                            type: "POST",
-                            url: 'Expedia',
-                            data: x,
-                            //success: function (response) { console.log(response); } 
-                        });
-                        alert(x);
-                                //$.post("Expedia", function (x) {
-                                    ///$(".result").html(x);
-                                    //console.log("sent");
-                                    //alert(x);
-          
+                $("button").click(function () {
+                    var x = $("form").serializeArray();
+                    $.each(x, function (i, field) {
+                        $("#results").append(field.name + ":" + field.value + " ");
                     });
+                });
+                    $.ajax({
+                        type: "POST",
+                        url: 'Expedia',
+                        datatype: 'json',
+                        data: x,
+                        success: function (response) { console.log(response); } 
+                    });
+                    console.log(x);
                 
-    </script>-->
+             </script>
              
         </div>
     </div>
